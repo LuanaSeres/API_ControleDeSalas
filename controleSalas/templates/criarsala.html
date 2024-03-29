@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cadastro de Sala</title>
+</head>
+<body>
+    <h1>Cadastro de Sala</h1>
+    <form method="post">
+        {% csrf_token %}
+        <label for="numero_sala">Número da Sala:</label>
+        <input type="text" id="numero_sala" name="numero_sala"><br><br>
+        
+        <label for="capacidade">Capacidade:</label>
+        <input type="text" id="capacidade" name="capacidade"><br><br>
+        
+        <label for="descricao">Descrição:</label><br>
+        <textarea id="descricao" name="descricao"></textarea><br><br>
+        
+        <button type="submit">Salvar</button>
+    </form>
+</body>
+</html>
