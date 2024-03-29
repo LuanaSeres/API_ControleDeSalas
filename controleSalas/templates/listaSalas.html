@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lista de Salas Disponíveis</title>
+</head>
+
+<body>
+  <h1>Lista de Salas Disponíveis</h1>
+  <ul>
+    {% for sala in salas %}
+    <li>Número da Sala: {{ sala.numeroSala }}</li>
+    <li>Capacidade: {{ sala.capacidade }}</li>
+    <li>Descrição: {{ sala.descricao }}</li>
+    <br>
+    {% endfor %}
+  </ul>
+</body>
+
+</html>
