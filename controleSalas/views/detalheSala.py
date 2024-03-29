@@ -26,3 +26,11 @@ class DetalhesSalaView(View):
             return JsonResponse(serializer.errors, status=400)
         except RepositorioSalas.SalaNaoEncontradaException:
             return JsonResponse({'error': 'Sala de aula não encontrada'}, status=404)
+        
+    def delete(self, request, id):
+        repository = RepositorioSalas()
+        try:
+            repository.excluir_sala(id)
+            return JsonResponse({'message': 'Sala de aula excluída com sucesso'})
+        except RepositorioSalas.SalaNaoEncontradaException:
+            return JsonResponse({'error': 'Sala de aula não encontrada'}, status=404)
