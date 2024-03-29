@@ -14,7 +14,7 @@ class ListaSalasDisponiveis(View):
         
         if serializer.is_valid():
             salas_serializadas = serializer.data
-            return render(request, "listaSalas.html", {"salas": salas_serializadas})
+            return render(request, "listarSalas.html", {"salas": salas_serializadas})
         else:
             print(serializer.errors)
             return HttpResponse("Erro ao obter as salas disponíveis", status=500)
