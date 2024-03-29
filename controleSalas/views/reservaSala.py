@@ -29,3 +29,8 @@ class ReservarSala(View):
       
       # Renderiza um template com o formulário de reserva
       return render(request, 'reservarSala.html', {'form': form})
+    def delete(self, request, sala_id, reserva_id):
+        # Obtém a reserva específica com base no ID fornecido
+        reserva = get_object_or_404(EntidadeReserva, id=reserva_id)
+        reserva.delete()
+        return JsonResponse({'message': 'Reserva deletada com sucesso!'}, status=204)
