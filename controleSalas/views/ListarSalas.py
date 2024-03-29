@@ -1,17 +1,16 @@
 from django.views import View
 from django.shortcuts import render
+from rest_framework.response import Response
 from django.http import HttpResponse
-from repository import RepositorioSalas
+from ..repository import RepositorioSalas
 from ..serializers.SalasSerializers import SalaSerializer
 
 class ListaSalasDisponiveis(View):
     def get(self, request):
         repository = RepositorioSalas(collectionName='nome_da_sua_colecao')
-        
         salas_disponiveis = repository.getAll()
-        
         serializer = SalaSerializer(salas_disponiveis, many=True)
-        
+    
         if serializer.is_valid():
             salas_serializadas = serializer.data
             return render(request, "listarSalas.html", {"salas": salas_serializadas})

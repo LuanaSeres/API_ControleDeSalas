@@ -2,7 +2,7 @@ from django.views import View
 from django.shortcuts import get_object_or_404, render
 from ..models.Salas import EntidadeSala, EntidadeReserva
 from ..serializers.SalasSerializers import ReservaSerializer
-from utils import determinar_horarios_disponiveis
+from ..utils import determinar_horarios_disponiveis
 
 class ListaHorariosDisponiveis(View):
     def get(self, request, sala_id):
